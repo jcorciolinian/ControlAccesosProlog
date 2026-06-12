@@ -1,0 +1,1 @@
+<?php require_once __DIR__ . '/../../includes/functions.php'; require_login(); require_permission('usuarios.eliminar'); $id=$_GET['id']??0; $pdo->prepare("UPDATE usuarios SET estado='INACTIVO' WHERE id_usuario=?")->execute([$id]); log_event('DESACTIVAR_USUARIO',"Usuario ID $id"); flash('success','Usuario desactivado.'); redirect('index.php');

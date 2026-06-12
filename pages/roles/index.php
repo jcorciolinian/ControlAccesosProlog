@@ -1,0 +1,3 @@
+<?php include __DIR__ . '/../../includes/header.php'; require_permission('roles.ver'); $roles=$pdo->query("SELECT * FROM roles ORDER BY id_rol")->fetchAll(); ?>
+<div class="header-row"><h1>Roles y permisos</h1><a class="btn" href="form.php">Nuevo rol</a></div><div class="card"><table><tr><th>ID</th><th>Rol</th><th>Descripción</th><th>Acciones</th></tr>
+<?php foreach($roles as $r): ?><tr><td><?= $r['id_rol'] ?></td><td><?= e($r['nombre_rol']) ?></td><td><?= e($r['descripcion']) ?></td><td><a class="btn btn-secondary" href="form.php?id=<?= $r['id_rol'] ?>">Editar permisos</a></td></tr><?php endforeach; ?></table></div><?php include __DIR__ . '/../../includes/footer.php'; ?>
